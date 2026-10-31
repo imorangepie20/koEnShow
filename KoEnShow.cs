@@ -70,8 +70,17 @@ namespace KoEnShow
         {
             var t = new Thread(() =>
             {
-                try { Automation.AddAutomationFocusChangedEventHandler(OnFocusChanged); }
-                catch { }
+                // 등록은 UIA 초기화 경합 등으로 E_FAIL이 날 수 있어, 실패하면 이벤트를 영영 못 받으므로 성공할 때까지 재시도
+                while (true)
+                {
+                    try
+                    {
+                        Automation.AddAutomationFocusChangedEventHandler(OnFocusChanged);
+                        return;
+                    }
+                    catch { }
+                    Thread.Sleep(1000);
+                }
             });
             t.IsBackground = true;
             t.SetApartmentState(ApartmentState.MTA);
