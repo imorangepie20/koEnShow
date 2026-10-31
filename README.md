@@ -6,6 +6,10 @@
 - Win32 앱은 시스템 캐럿으로, 브라우저·Electron·UWP 앱은 UI Automation으로 입력 상태 감지
 - 배지는 클릭을 통과시키고 포커스를 가져가지 않음
 
+## 다운로드
+
+[Releases](https://github.com/imorangepie20/koEnShow/releases/latest)에서 `KoEnShow.exe`를 받아 실행한다. 설치 과정은 없다.
+
 ## 빌드
 
 .NET Framework 4.x 기본 컴파일러만 있으면 된다(별도 SDK 불필요).
